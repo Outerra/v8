@@ -769,7 +769,7 @@ source_set("v8_maybe_snapshot") {
   }
 }
 
-v8_source_set("v8_nosnapshot") {
+v8_component("v8_nosnapshot") {
   visibility = [ ":*" ]  # Only targets in this file can depend on this.
 
   deps = [
@@ -791,7 +791,7 @@ v8_source_set("v8_nosnapshot") {
   configs = [ ":internal_config" ]
 }
 
-v8_source_set("v8_snapshot") {
+v8_component("v8_snapshot") {
   # Only targets in this file and the top-level visibility target can
   # depend on this.
   visibility = [
@@ -824,7 +824,7 @@ v8_source_set("v8_snapshot") {
 }
 
 if (v8_use_external_startup_data) {
-  v8_source_set("v8_external_snapshot") {
+  v8_component("v8_external_snapshot") {
     visibility = [ ":*" ]  # Only targets in this file can depend on this.
 
     deps = [
@@ -848,7 +848,7 @@ if (v8_use_external_startup_data) {
   }
 }
 
-v8_source_set("v8_base") {
+v8_component("v8_base") {
   visibility = [ ":*" ]  # Only targets in this file can depend on this.
 
   sources = [
@@ -2366,7 +2366,7 @@ v8_component("v8_libplatform") {
   ]
 }
 
-v8_source_set("v8_libsampler") {
+v8_component("v8_libsampler") {
   sources = [
     "src/libsampler/sampler.cc",
     "src/libsampler/sampler.h",
@@ -2381,7 +2381,7 @@ v8_source_set("v8_libsampler") {
   ]
 }
 
-v8_source_set("fuzzer_support") {
+v8_component("fuzzer_support") {
   visibility = [ ":*" ]  # Only targets in this file can depend on this.
 
   sources = [
@@ -2401,7 +2401,7 @@ v8_source_set("fuzzer_support") {
   ]
 }
 
-v8_source_set("simple_fuzzer") {
+v8_component("simple_fuzzer") {
   sources = [
     "test/fuzzer/fuzzer.cc",
   ]
@@ -2695,7 +2695,7 @@ template("v8_fuzzer") {
   }
 }
 
-v8_source_set("json_fuzzer") {
+v8_component("json_fuzzer") {
   sources = [
     "test/fuzzer/json.cc",
   ]
@@ -2713,7 +2713,7 @@ v8_source_set("json_fuzzer") {
 v8_fuzzer("json_fuzzer") {
 }
 
-v8_source_set("parser_fuzzer") {
+v8_component("parser_fuzzer") {
   sources = [
     "test/fuzzer/parser.cc",
   ]
@@ -2731,7 +2731,7 @@ v8_source_set("parser_fuzzer") {
 v8_fuzzer("parser_fuzzer") {
 }
 
-v8_source_set("regexp_fuzzer") {
+v8_component("regexp_fuzzer") {
   sources = [
     "test/fuzzer/regexp.cc",
   ]
