@@ -1,0 +1,11 @@
+# Build arguments go here. Examples:
+#   is_component_build = true
+#   is_debug = false
+# See "gn args <out_dir> --list" for available build arguments.
+
+is_component_build = true
+is_debug = true
+host_cpu = "x86"
+visual_studio_version = "2015"
+v8_use_snapshot = false
+v8_use_external_startup_data = false
